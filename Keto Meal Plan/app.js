@@ -7,9 +7,90 @@ const menu = [
     img: "./images/item-1.jpeg",
     desc: ` `,
   },
+  {
+    id: 2,
+    title: "meal 1",
+    category: "breakfast",
+    calories: 200,
+    img: "./images/item-1.jpeg",
+    desc: ` `,
+  },
+  {
+    id: 3,
+    title: "meal 1",
+    category: "breakfast",
+    calories: 200,
+    img: "./images/item-1.jpeg",
+    desc: ` `,
+  },
+  {
+    id: 4,
+    title: "meal 1",
+    category: "breakfast",
+    calories: 200,
+    img: "./images/item-1.jpeg",
+    desc: ` `,
+  },
+  {
+    id: 5,
+    title: "meal 1",
+    category: "snacks",
+    calories: 200,
+    img: "./images/item-1.jpeg",
+    desc: ` `,
+  },
+  {
+    id: 6,
+    title: "meal 1",
+    category: "breakfast",
+    calories: 200,
+    img: "./images/item-1.jpeg",
+    desc: ` `,
+  },
+  {
+    id: 7,
+    title: "meal 1",
+    category: "dinner",
+    calories: 200,
+    img: "./images/item-1.jpeg",
+    desc: ` `,
+  },
+  {
+    id: 8,
+    title: "meal 1",
+    category: "lunch",
+    calories: 200,
+    img: "./images/item-1.jpeg",
+    desc: ` `,
+  },
 ];
 // get parent element
 const sectionCenter = document.querySelector(".section-center");
 const btnContainer = document.querySelector(".btn-container");
 // display all items when page loads
-window.addEventListener("DOMContentLoaded", function () {});
+window.addEventListener("DOMContentLoaded", function () {
+  diplayMenuItems(menu);
+});
+
+function diplayMenuItems(menuItems) {
+  let displayMenu = menuItems.map(function (item) {
+    // console.log(item);
+
+    return `<article class="menu-item">
+          <img src=${item.img} alt=${item.title} class="photo" />
+          <div class="item-info">
+            <header>
+              <h4>${item.title}</h4>
+              <h4 class="calories">$${item.calories}</h4>
+            </header>
+            <p class="item-text">
+              ${item.desc}
+            </p>
+          </div>
+        </article>`;
+  });
+  displayMenu = displayMenu.join("");
+  // console.log(displayMenu);
+
+  sectionCenter.innerHTML = displayMenu;
+}
